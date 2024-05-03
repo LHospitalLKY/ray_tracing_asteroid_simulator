@@ -64,3 +64,6 @@ secrets.txt
 # 忽略编译配置文件
 Makefile
 CMakeLists.txt
+
+# 忽略用来测试程序的数据
+**/test_data
