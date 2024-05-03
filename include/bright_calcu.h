@@ -2,7 +2,7 @@
  * @Author: lhopital 1141165506@qq.com
  * @Date: 2024-04-26 19:33:28
  * @LastEditors: lhopital 1141165506@qq.com
- * @LastEditTime: 2024-05-03 17:12:51
+ * @LastEditTime: 2024-05-03 17:57:49
  * @FilePath: /g2o_test/include/bright_calcu.h
  * @Description: 输入形状模型和观测条件, 计算亮度
  */
@@ -82,25 +82,12 @@ void calculate_light(const FacetList &facetList, const VerticeList &vertexList,
                      const double *A0, const double *D, const double *k,
                      double c = 0.1, double albedo = 1.0, double time_0 = 0.0);
 
-// /**
-//  * TODO:考虑以下这里AllRelative=1时的
-//  * @description: 计算单个视角下的亮度, 无需重新计算面片法向量、面积、可见性
-//  * @param {NormalList} &normalList, 面片法向量列表
-//  * @param {AreaList} &areaList, 面片面积列表
-//  * @param {VisiableList} &visiableList, 面片可见性列表
-//  * @param {ViewVector} &obsView, 观测方向, 固联系统坐标系
-//  * @param {ViewVector} &sunView, 太阳方向, 固联系统坐标系
-//  * @param {double} c, LSL参数c, 默认值为0.1
-//  * @param {double} albedo, 固有反照率, 默认值为1.0
-//  * @param {double} phase, 散射相函数值, 默认值为1.0
-//  * @return {*}
-//  */
-// double calculate_light_oneView(const NormalList &normalList,
-//                                const AreaList &areaList,
-//                                const VisiableList &visiableList,
-//                                const ViewVector &obsView,
-//                                const ViewVector &sunView, double c = 0.1,
-//                                double albedo = 1.0, double phase = 1.0);
+/**
+ * @description: 归一化亮度
+ * @param {BriList} &bright_list
+ * @return {*}
+ */
+void normal_bright(BriList &bright_list);
 
 /**
  * @description: 计算单个视角下的亮度, 无需重新计算面片法向量、面积、可见性

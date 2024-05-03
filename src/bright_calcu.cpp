@@ -5,6 +5,7 @@
 #include <cstddef>
 #include <eigen3/Eigen/src/Core/Matrix.h>
 #include <g2o/stuff/macros.h>
+#include <math.h>
 
 double phaseFunction(const ViewVector &obsView, const ViewVector &sunView,
                      double A0, double D, double k) {
@@ -106,35 +107,29 @@ void calculate_light(const FacetList &facetList, const VerticeList &vertexList,
         normalList, areaList, visiableList, obsView_IAU[i], sunView_IAU[i], A0,
         D, k, c, albedo));
   }
+
+  normal_bright(brightList);
 }
 
-// double calculate_light_oneView(const NormalList &normalList,
-//                                const AreaList &areaList,
-//                                const VisiableList &visiableList,
-//                                const ViewVector &obsView,
-//                                const ViewVector &sunView, double c,
-//                                double albedo, double phase) {
-//   // 1. 判断验证
-//   assert(normalList.size() == areaList.size());
-//   assert(normalList.size() == visiableList.size());
+// normalBright
+void normal_bright(BriList &bright_list) {
+  double sumBright = 0.0;
+  int sample_num = bright_list.size();
+  
+  if (bright_list.empty()) {
+    std::cerr << "Brightness list is empty!" << std::endl;
+    return;
+  }
 
-//   // 3. 遍历所有的面
-//   double brightness = 0.0;
-//   for (size_t i = 0; i < normalList.size(); i++) {
-//     if (visiableList[i] != true) {
-//       // FIXME: DEBUG语句
-// #ifdef DEBUG
-//       std::cout << "The facet is not visiable!" << std::endl;
-// #endif // DEBUG
-//       continue;
-//     }
-//     // 得到散射亮度
-//     double scatter = LSLScatter(phase, normalList[i], obsView, sunView, c);
-//     brightness = brightness + albedo * scatter * areaList[i];
-//   }
+  for (size_t i = 0; i < bright_list.size(); i++) {
+    sumBright += bright_list[i];
+  }
+  // sumBright = pow(sumBright, 2);
 
-//   return brightness;
-// }
+  for (size_t i = 0; i < bright_list.size(); i++) {
+    bright_list[i] = sample_num * bright_list[i] / sumBright;
+  }
+}
 
 double calculate_light_oneView(const NormalList &normalList,
                                const AreaList &areaList,
@@ -153,7 +148,7 @@ double calculate_light_oneView(const NormalList &normalList,
   if (A0 != NULL || D != NULL || k != NULL) {
     phase_value = phaseFunction(obsView, sunView, *A0, *D, *k);
   }
-  std::cout << phase_value << std::endl;
+  // std::cout << phase_value << std::endl;
   // 3. 遍历所有的面
   double brightness = 0.0;
   for (size_t i = 0; i < normalList.size(); i++) {
