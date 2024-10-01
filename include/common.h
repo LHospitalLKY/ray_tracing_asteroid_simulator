@@ -2,10 +2,12 @@
  * @Author: lhopital 1141165506@qq.com
  * @Date: 2024-05-03 16:17:42
  * @LastEditors: lhopital 1141165506@qq.com
- * @LastEditTime: 2024-05-03 16:38:37
+ * @LastEditTime: 2024-10-01 14:02:57
  * @FilePath: /g2o_test/include/common/common.h
  * @Description: 一些公用的数据类型与函数
  */
+
+#ifndef COMMON_H
 
 #include <iostream>
 #include <vector>
@@ -36,6 +38,44 @@ typedef std::vector<FacetNormal> NormalList;     // 面片法向列表
 typedef std::vector<ViewVector> VectorList;      // 方向向量列表
 typedef std::vector<double> AreaList;            // 面片面积列表
 typedef std::vector<bool> VisiableList;          // 面片可见性列表
+
+// 定义一些计算
+VertexPosition operator+(const VertexPosition &v1, const VertexPosition &v2);   // 顶点加法
+VertexPosition operator-(const VertexPosition &v1, const VertexPosition &v2);    // 顶点减法
+
+// AO中所需要的数据结构
+// typedef struct AO {
+//     // 单幅AO图像的数据结构
+//     ViewVector _sunDirec;             // 太阳光方向向量
+//     ViewVector _viewDirec;            // 观测方向向量
+//     double _time;                     // 观测时间
+//     double _distant;                  // 距离(但还不知道是什么距离)
+
+//     double _pixelScale_x;             // x方向像素尺寸
+//     double _pixelScale_y;             // y方向像素尺寸
+//     ViewVector _up;                   // 仪器方向(要看看这个方向指的是什么)
+// }AoStruct;
+
+
+
+// typedef struct AO {
+//   int nao;        /*number of AO images*/
+//   int ntotal;     /*total number of observation points*/
+//   int *nobs;      /*Array, number of points per ao image*/
+//   double **datar; /*Observations, Fourier transform of images*/
+//   double **datai;
+//   double **psfr; /*Fourier transformed psf, optional*/
+//   double **psfi;
+//   double **freqx; /*Frequency points of FT, corresponding to data*/
+//   double **freqy;
+//   double *E;        /*view directions, 3*nao array*/
+//   double *E0;       /*obs directions 3*nao array*/
+//   double *TIME;     /*obs time, nao array*/
+//   double *distance; /*distance in au, nao array*/
+//   double *scalex;   /*pixel scale, nao array*/
+//   double *scaley;   /*pixel scale, nao array*/
+//   double *up;       /*orientation of instrument 3*nao array*/
+// } AOstruct;
 
 typedef std::vector<std::vector<double>> RotMatrix; // 旋转矩阵
 
@@ -98,3 +138,7 @@ void write_shape_stl(std::string filename, const FacetList &facetList,
  */
 void read_shape(std::string filename, FacetList &facetList,
                 VerticeList &verticeList, int type3);
+
+
+
+#endif // !COMMON_H

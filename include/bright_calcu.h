@@ -2,7 +2,7 @@
  * @Author: lhopital 1141165506@qq.com
  * @Date: 2024-04-26 19:33:28
  * @LastEditors: lhopital 1141165506@qq.com
- * @LastEditTime: 2024-05-03 17:57:49
+ * @LastEditTime: 2024-10-01 13:54:52
  * @FilePath: /g2o_test/include/bright_calcu.h
  * @Description: 输入形状模型和观测条件, 计算亮度
  */
@@ -16,6 +16,8 @@
  * 单位均为deg Eo: 观测方向 E0o: 光源方向
  * 这些参数是前向计算目标亮度所必须的信息, 其实这里应该还有反射率参数
  */
+
+#ifndef BRIGHT_CALCU_H
 
 #include "common.h"
 
@@ -69,6 +71,30 @@ bool visiable_by_Vec(const FacetNormal &normalVec, const FacetNormal &sunVec);
  */
 void facetVisiable_calcu(const NormalList &normalList, const ViewVector sunVec,
                          const ViewVector obsVec, VisiableList &visiableList);
+
+/**
+ * @description: 计算面片的可见性
+ * 采用两个判断准则来得到可见性列表:
+ * 1. 通过面片的法向量和观测方向、太阳方向判断面片是否可见
+ * 2. 计算当前方向下, 当前面片是否是太阳或观测者发出的, 所看到的第一个位置
+ * @param {NormalList} &normalList, 面片法向量列表
+ * @param {ViewVector} sunPos, 太阳位置, 单位是km
+ * @param {ViewVector} obsPos, 观测者位置, 单位是km
+ * @param {VisiableList} &visiableList, 可见性列表
+ * @return {*}
+ */
+void facetVisiable_calcu_final(const NormalList &normalList,
+                               const ViewVector sunPos, const ViewVector obsPos,
+                               VisiableList &visiableList);
+
+/**
+ * @description: 计算点p到三角形面片的距离
+ * @param {VerticeList} &p, 待计算的点
+ * @param {FacetIndex} &f, 待计算的三角形面片
+ * @param {VerticeList} &verList, 所有顶点列表, 用于得到三角形的三个顶点
+ * @return {*}
+ */
+void pointToTriangleDistance(const VerticeList &p, const FacetIndex &f, const VerticeList &verList);
 
 /**
  * @description:
@@ -129,3 +155,5 @@ void calculate_areas_normals(const FacetList &facetList,
 void calculate_areas_normals_onepiece(const FacetIndex &facetIndex,
                                       const VerticeList &vertexList,
                                       FacetNormal &normalVec, double &area);
+
+#endif // !BRIGHT_CALCU_H

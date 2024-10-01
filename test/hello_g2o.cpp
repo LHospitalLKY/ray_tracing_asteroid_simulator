@@ -2,7 +2,7 @@
  * @Author: lhopital 1141165506@qq.com
  * @Date: 2024-04-23 19:40:23
  * @LastEditors: lhopital 1141165506@qq.com
- * @LastEditTime: 2024-04-23 22:14:53
+ * @LastEditTime: 2024-05-04 11:28:44
  * @FilePath: /g2o_test/hello_g2o.cpp
  * @Description: 最简单的最小二乘法
  * TODO: 写一个椭球自转周期拟合的例子
@@ -77,12 +77,15 @@ public:
     // 这里定义"()"操作是因为调用了自动求导, 自动求导的时候会调用这个函数
     template<typename T>
     bool operator()  (const T* params, T* error) const {
+        // std::cout << "typeid(T) = " << typeid(T).name() << std::endl;
         const T& a = params[0];
         const T& b = params[1];
         const T& lambda = params[2];
         T fval = a * exp(-lambda * T(measurement()(0))) + b;
         // 注意这里error的计算不要写错
         error[0] = fval - measurement()(1);
+
+        // std::cout << "Jacob: " << _jacobianOplusXi << std::endl;
 
         return true;
     }

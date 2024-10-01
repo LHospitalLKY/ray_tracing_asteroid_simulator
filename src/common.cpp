@@ -2,7 +2,7 @@
  * @Author: lhopital 1141165506@qq.com
  * @Date: 2024-05-03 16:32:46
  * @LastEditors: lhopital 1141165506@qq.com
- * @LastEditTime: 2024-05-03 17:32:09
+ * @LastEditTime: 2024-10-01 14:04:45
  * @FilePath: /g2o_test/src/common/common.cpp
  * @Description: common.h的实现
  */
@@ -38,6 +38,25 @@ void Stringsplit(std::string str, const char &split,
       meet = false;
     }
   }
+}
+
+// 顶点加法
+VertexPosition operator+(const VertexPosition &v1, const VertexPosition &v2) {
+  VertexPosition v;
+  v.push_back(v1[0] + v2[0]);
+  v.push_back(v1[1] + v2[1]);
+  v.push_back(v1[2] + v2[2]);
+
+  return v;
+}
+// 顶点减法
+VertexPosition operator-(const VertexPosition &v1, const VertexPosition &v2) {
+  VertexPosition v;
+  v.push_back(v1[0] - v2[0]);
+  v.push_back(v1[1] - v2[1]);
+  v.push_back(v1[2] - v2[2]);
+
+  return v;
 }
 
 // phaseAngle

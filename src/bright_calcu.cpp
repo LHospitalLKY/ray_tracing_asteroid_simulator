@@ -31,6 +31,10 @@ double LSLScatter(double phase, const FacetNormal &normalVec,
   mu0 = sunView[0] * normalVec[0] + sunView[1] * normalVec[1] +
         sunView[2] * normalVec[2];
 
+  mu = mu / sqrt(obsView[0] * obsView[0] + obsView[1] * obsView[1] +
+                 obsView[2] * obsView[2]);
+  mu0 = mu0 / sqrt(sunView[0] * sunView[0] + sunView[1] * sunView[1] +
+                   sunView[2] * sunView[2]);
   // 计算散射反射率
   return phase * albedo * mu * mu0 * (1.0 / (mu + mu0) + c);
 }
@@ -49,6 +53,26 @@ void facetVisiable_calcu(const NormalList &normalList, const ViewVector sunVec,
   for (size_t i = 0; i < normalList.size(); i++) {
     visiableList.push_back(visiable_by_Vec(normalList[i], sunVec) &&
                            visiable_by_Vec(normalList[i], obsVec));
+  }
+}
+
+// TODO: 这部分看看到底对不对, 感觉不太对, 而且后续接不上好像
+void pointToTriangleDistance(const VertexPosition &p, const FacetIndex &f, const VerticeList &verList) {
+  // 得到三角形顶点坐标
+  VertexPosition A = verList[f[0] - 1];
+  VertexPosition B = verList[f[1] - 1];
+  VertexPosition C = verList[f[2] - 1];
+
+  // 点p到三角形顶点ABC的向量
+  VertexPosition AP = p - A;
+  // VertexPosition
+}
+
+void facetVisiable_calcu_final(const NormalList &normalList, const ViewVector sunPos, const ViewVector obsPos, VisiableList &visiableList) {
+  // step 1. 计算包围盒(TODO， 在测试时可以先不用)
+  // step 2. 遍历面, 计算当前面与太阳、观测者的距离
+  for (size_t i = 0; i < normalList.size(); i++) {
+
   }
 }
 
@@ -82,8 +106,10 @@ void calculate_light(const FacetList &facetList, const VerticeList &vertexList,
 
 #ifdef DEBUG
     std::cout << "Obs and Sun Vec in IAU: " << std::endl;
-    std::cout << (obsView / obsView.norm()).transpose() << std::endl;
-    std::cout << (sunView / sunView.norm()).transpose() << std::endl;
+    // std::cout << (obsView / obsView.norm()).transpose() << std::endl;
+    // std::cout << (sunView / sunView.norm()).transpose() << std::endl;
+    std::cout << obsView.transpose() << std::endl;
+    std::cout << sunView.transpose() << std::endl;
 #endif
 
     obsView_IAU.push_back({obsView[0], obsView[1], obsView[2]});
@@ -108,7 +134,7 @@ void calculate_light(const FacetList &facetList, const VerticeList &vertexList,
         D, k, c, albedo));
   }
 
-  normal_bright(brightList);
+  // normal_bright(brightList);
 }
 
 // normalBright
@@ -162,6 +188,10 @@ double calculate_light_oneView(const NormalList &normalList,
     // 得到散射亮度
     double scatter =
         LSLScatter(phase_value, normalList[i], obsView, sunView, c);
+    // if (scatter < 0.0) {
+    //   std::cout << "Scattar is less than 0!" << std::endl;
+    //   std::cout << scatter << std::endl;
+    // }
     brightness = brightness + albedo * scatter * areaList[i];
   }
 

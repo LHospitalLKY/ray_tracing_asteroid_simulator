@@ -1,0 +1,12 @@
+prefix=/home/lho/Program/CCFits/CCfits-2.6/build
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: CCfits
+Description: Object Oriented C++ Interface to CFITSIO Library
+Requires.private: cfitsio >= 3.08
+Version: 2.6
+Libs: -L${libdir} -lCCfits
+Cflags: -I${includedir}
+
