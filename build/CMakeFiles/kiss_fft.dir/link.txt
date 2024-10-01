@@ -1,0 +1,2 @@
+/usr/bin/ar qc libkiss_fft.a CMakeFiles/kiss_fft.dir/3dpart/Kissfft/tools/kiss_fftndr.c.o CMakeFiles/kiss_fft.dir/3dpart/Kissfft/tools/kiss_fftr.c.o CMakeFiles/kiss_fft.dir/3dpart/Kissfft/tools/kiss_fftnd.c.o CMakeFiles/kiss_fft.dir/3dpart/Kissfft/kiss_fft.c.o
+/usr/bin/ranlib libkiss_fft.a

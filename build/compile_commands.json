@@ -1,0 +1,92 @@
+[
+{
+  "directory": "/home/lho/MyProgramm/2024.04/g2o_test/build",
+  "command": "/usr/bin/cc  -I/usr/include/eigen3 -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft/tools -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/CCfits -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/cfitsio -O3 -DNDEBUG -O0 -g -o CMakeFiles/kiss_fft.dir/3dpart/Kissfft/tools/kiss_fftndr.c.o -c /home/lho/MyProgramm/2024.04/g2o_test/3dpart/Kissfft/tools/kiss_fftndr.c",
+  "file": "/home/lho/MyProgramm/2024.04/g2o_test/3dpart/Kissfft/tools/kiss_fftndr.c",
+  "output": "CMakeFiles/kiss_fft.dir/3dpart/Kissfft/tools/kiss_fftndr.c.o"
+},
+{
+  "directory": "/home/lho/MyProgramm/2024.04/g2o_test/build",
+  "command": "/usr/bin/cc  -I/usr/include/eigen3 -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft/tools -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/CCfits -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/cfitsio -O3 -DNDEBUG -O0 -g -o CMakeFiles/kiss_fft.dir/3dpart/Kissfft/tools/kiss_fftr.c.o -c /home/lho/MyProgramm/2024.04/g2o_test/3dpart/Kissfft/tools/kiss_fftr.c",
+  "file": "/home/lho/MyProgramm/2024.04/g2o_test/3dpart/Kissfft/tools/kiss_fftr.c",
+  "output": "CMakeFiles/kiss_fft.dir/3dpart/Kissfft/tools/kiss_fftr.c.o"
+},
+{
+  "directory": "/home/lho/MyProgramm/2024.04/g2o_test/build",
+  "command": "/usr/bin/cc  -I/usr/include/eigen3 -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft/tools -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/CCfits -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/cfitsio -O3 -DNDEBUG -O0 -g -o CMakeFiles/kiss_fft.dir/3dpart/Kissfft/tools/kiss_fftnd.c.o -c /home/lho/MyProgramm/2024.04/g2o_test/3dpart/Kissfft/tools/kiss_fftnd.c",
+  "file": "/home/lho/MyProgramm/2024.04/g2o_test/3dpart/Kissfft/tools/kiss_fftnd.c",
+  "output": "CMakeFiles/kiss_fft.dir/3dpart/Kissfft/tools/kiss_fftnd.c.o"
+},
+{
+  "directory": "/home/lho/MyProgramm/2024.04/g2o_test/build",
+  "command": "/usr/bin/cc  -I/usr/include/eigen3 -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft/tools -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/CCfits -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/cfitsio -O3 -DNDEBUG -O0 -g -o CMakeFiles/kiss_fft.dir/3dpart/Kissfft/kiss_fft.c.o -c /home/lho/MyProgramm/2024.04/g2o_test/3dpart/Kissfft/kiss_fft.c",
+  "file": "/home/lho/MyProgramm/2024.04/g2o_test/3dpart/Kissfft/kiss_fft.c",
+  "output": "CMakeFiles/kiss_fft.dir/3dpart/Kissfft/kiss_fft.c.o"
+},
+{
+  "directory": "/home/lho/MyProgramm/2024.04/g2o_test/build",
+  "command": "/usr/bin/c++  -I/usr/include/eigen3 -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft/tools -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/CCfits -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/cfitsio -O3 -DNDEBUG -O0 -g -std=gnu++17 -o CMakeFiles/bright_calcu.dir/src/common.cpp.o -c /home/lho/MyProgramm/2024.04/g2o_test/src/common.cpp",
+  "file": "/home/lho/MyProgramm/2024.04/g2o_test/src/common.cpp",
+  "output": "CMakeFiles/bright_calcu.dir/src/common.cpp.o"
+},
+{
+  "directory": "/home/lho/MyProgramm/2024.04/g2o_test/build",
+  "command": "/usr/bin/c++  -I/usr/include/eigen3 -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft/tools -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/CCfits -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/cfitsio -O3 -DNDEBUG -O0 -g -std=gnu++17 -o CMakeFiles/bright_calcu.dir/src/bright_calcu.cpp.o -c /home/lho/MyProgramm/2024.04/g2o_test/src/bright_calcu.cpp",
+  "file": "/home/lho/MyProgramm/2024.04/g2o_test/src/bright_calcu.cpp",
+  "output": "CMakeFiles/bright_calcu.dir/src/bright_calcu.cpp.o"
+},
+{
+  "directory": "/home/lho/MyProgramm/2024.04/g2o_test/build",
+  "command": "/usr/bin/c++  -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft/tools -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/CCfits -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/cfitsio -isystem /usr/include/eigen3 -isystem /usr/local/include/g2o/core -isystem /usr/local/include/g2o/stuff -O3 -DNDEBUG -O0 -g -std=gnu++17 -o CMakeFiles/hello_demo.dir/test/hello_g2o.cpp.o -c /home/lho/MyProgramm/2024.04/g2o_test/test/hello_g2o.cpp",
+  "file": "/home/lho/MyProgramm/2024.04/g2o_test/test/hello_g2o.cpp",
+  "output": "CMakeFiles/hello_demo.dir/test/hello_g2o.cpp.o"
+},
+{
+  "directory": "/home/lho/MyProgramm/2024.04/g2o_test/build",
+  "command": "/usr/bin/c++  -I/usr/include/eigen3 -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft/tools -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/CCfits -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/cfitsio -O3 -DNDEBUG -O0 -g -std=gnu++17 -o CMakeFiles/bright_calcu_test.dir/test/bright_calcu_test.cpp.o -c /home/lho/MyProgramm/2024.04/g2o_test/test/bright_calcu_test.cpp",
+  "file": "/home/lho/MyProgramm/2024.04/g2o_test/test/bright_calcu_test.cpp",
+  "output": "CMakeFiles/bright_calcu_test.dir/test/bright_calcu_test.cpp.o"
+},
+{
+  "directory": "/home/lho/MyProgramm/2024.04/g2o_test/build",
+  "command": "/usr/bin/c++  -I/usr/include/eigen3 -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft/tools -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/CCfits -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/cfitsio -O3 -DNDEBUG -O0 -g -std=gnu++17 -o CMakeFiles/damit_obj_converter_test.dir/src/common.cpp.o -c /home/lho/MyProgramm/2024.04/g2o_test/src/common.cpp",
+  "file": "/home/lho/MyProgramm/2024.04/g2o_test/src/common.cpp",
+  "output": "CMakeFiles/damit_obj_converter_test.dir/src/common.cpp.o"
+},
+{
+  "directory": "/home/lho/MyProgramm/2024.04/g2o_test/build",
+  "command": "/usr/bin/c++  -I/usr/include/eigen3 -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft/tools -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/CCfits -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/cfitsio -O3 -DNDEBUG -O0 -g -std=gnu++17 -o CMakeFiles/damit_obj_converter_test.dir/src/damit_obj_converter.cpp.o -c /home/lho/MyProgramm/2024.04/g2o_test/src/damit_obj_converter.cpp",
+  "file": "/home/lho/MyProgramm/2024.04/g2o_test/src/damit_obj_converter.cpp",
+  "output": "CMakeFiles/damit_obj_converter_test.dir/src/damit_obj_converter.cpp.o"
+},
+{
+  "directory": "/home/lho/MyProgramm/2024.04/g2o_test/build",
+  "command": "/usr/bin/c++  -I/usr/include/eigen3 -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft/tools -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/CCfits -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/cfitsio -O3 -DNDEBUG -O0 -g -std=gnu++17 -o CMakeFiles/damit_obj_converter_test.dir/test/damit_obj_converter_test.cpp.o -c /home/lho/MyProgramm/2024.04/g2o_test/test/damit_obj_converter_test.cpp",
+  "file": "/home/lho/MyProgramm/2024.04/g2o_test/test/damit_obj_converter_test.cpp",
+  "output": "CMakeFiles/damit_obj_converter_test.dir/test/damit_obj_converter_test.cpp.o"
+},
+{
+  "directory": "/home/lho/MyProgramm/2024.04/g2o_test/build",
+  "command": "/usr/bin/c++  -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft/tools -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/CCfits -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/cfitsio -isystem /usr/include/eigen3 -isystem /usr/local/include/g2o/core -isystem /usr/local/include/g2o/stuff -O3 -DNDEBUG -O0 -g -std=gnu++17 -o CMakeFiles/period_scan.dir/test/period_scan.cpp.o -c /home/lho/MyProgramm/2024.04/g2o_test/test/period_scan.cpp",
+  "file": "/home/lho/MyProgramm/2024.04/g2o_test/test/period_scan.cpp",
+  "output": "CMakeFiles/period_scan.dir/test/period_scan.cpp.o"
+},
+{
+  "directory": "/home/lho/MyProgramm/2024.04/g2o_test/build",
+  "command": "/usr/bin/c++ -DGFLAGS_IS_A_DLL=0 -DGOOGLE_GLOG_DLL_DECL=\"\" -DGOOGLE_GLOG_DLL_DECL_FOR_UNITTESTS=\"\" -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft/tools -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/CCfits -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/cfitsio -isystem /usr/include/eigen3 -O3 -DNDEBUG -O0 -g -std=gnu++17 -o CMakeFiles/ceres_test.dir/test/ceres_test.cpp.o -c /home/lho/MyProgramm/2024.04/g2o_test/test/ceres_test.cpp",
+  "file": "/home/lho/MyProgramm/2024.04/g2o_test/test/ceres_test.cpp",
+  "output": "CMakeFiles/ceres_test.dir/test/ceres_test.cpp.o"
+},
+{
+  "directory": "/home/lho/MyProgramm/2024.04/g2o_test/build",
+  "command": "/usr/bin/c++  -I/usr/include/eigen3 -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft/tools -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/CCfits -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/cfitsio -O3 -DNDEBUG -O0 -g -std=gnu++17 -o CMakeFiles/AO_calcu.dir/src/common.cpp.o -c /home/lho/MyProgramm/2024.04/g2o_test/src/common.cpp",
+  "file": "/home/lho/MyProgramm/2024.04/g2o_test/src/common.cpp",
+  "output": "CMakeFiles/AO_calcu.dir/src/common.cpp.o"
+},
+{
+  "directory": "/home/lho/MyProgramm/2024.04/g2o_test/build",
+  "command": "/usr/bin/c++  -I/usr/include/eigen3 -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/kissfft/tools -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/CCfits -I/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/include/cfitsio -O3 -DNDEBUG -O0 -g -std=gnu++17 -o CMakeFiles/AO_calcu.dir/src/AO_calcu.cpp.o -c /home/lho/MyProgramm/2024.04/g2o_test/src/AO_calcu.cpp",
+  "file": "/home/lho/MyProgramm/2024.04/g2o_test/src/AO_calcu.cpp",
+  "output": "CMakeFiles/AO_calcu.dir/src/AO_calcu.cpp.o"
+}
+]

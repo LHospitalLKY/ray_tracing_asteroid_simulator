@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbright_calcu.a CMakeFiles/bright_calcu.dir/src/common.cpp.o CMakeFiles/bright_calcu.dir/src/bright_calcu.cpp.o
+/usr/bin/ranlib libbright_calcu.a

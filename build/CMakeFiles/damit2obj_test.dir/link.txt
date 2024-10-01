@@ -1,0 +1,1 @@
+/usr/bin/g++-12 -O3 -DNDEBUG -O0 -g CMakeFiles/damit2obj_test.dir/src/common.cpp.o CMakeFiles/damit2obj_test.dir/src/damit2obj.cpp.o CMakeFiles/damit2obj_test.dir/test/damit_obj_converter.cpp.o -o damit2obj_test   -L/usr/local/lib  -L/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/lib/CCfits  -L/home/lho/MyProgramm/2024.04/g2o_test/./3dpart/CCFtis/lib/cfitsio
