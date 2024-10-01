@@ -21,6 +21,7 @@ Thumbs.db
 *.swo
 *.bak
 *.cache
+cache/
 
 # 忽略依赖管理工具生成的文件
 node_modules/
