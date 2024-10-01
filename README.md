@@ -1,0 +1,2 @@
+# ray_tracing_asteroid_simulator
+基于光线追踪的小天体仿真器
