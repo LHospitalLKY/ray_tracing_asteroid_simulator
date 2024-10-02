@@ -108,7 +108,18 @@ add_executable(damit_obj_converter_test
     src/damit_obj_converter.cpp
     test/damit_obj_converter_test.cpp
 )
-target_link_libraries(damit_obj_converter_test)
+# 可见性测试
+add_executable(visibility_test
+    # include/common.h
+    # include/bright_calcu.h
+    include/obj_loader.h
+    src/common.cpp
+    test/visibility_test.cpp
+)
+target_link_libraries(visibility_test
+    bright_calcu
+)
+
 # 基于g2o的周期计算
 add_executable(period_scan
     test/period_scan.cpp

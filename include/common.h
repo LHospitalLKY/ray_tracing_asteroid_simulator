@@ -1,8 +1,8 @@
 /*
  * @Author: lhopital 1141165506@qq.com
  * @Date: 2024-05-03 16:17:42
- * @LastEditors: lhopital 1141165506@qq.com
- * @LastEditTime: 2024-10-01 14:02:57
+ * @LastEditors: LHospitalLKY 1141165506@qq.com
+ * @LastEditTime: 2024-10-02 18:48:40
  * @FilePath: /g2o_test/include/common/common.h
  * @Description: 一些公用的数据类型与函数
  */
@@ -24,7 +24,7 @@ void Stringsplit(std::string str, const char &split,
                  std::vector<std::string> &res);
 
 // 光变计算中所需要的数据结构
-typedef std::vector<int> FacetIndex;        // 面片顶点索引结构
+typedef std::vector<int> FacetIndex;       // 面片顶点索引结构, 统一规定点的最小索引为0
 typedef std::vector<double> VertexPosition; // 顶点坐标结构, 顺序x, y, z
 typedef std::vector<double> FacetNormal; // 面片法向结构, 顺序nx, ny, nz
 typedef std::vector<double>
@@ -42,6 +42,14 @@ typedef std::vector<bool> VisiableList;          // 面片可见性列表
 // 定义一些计算
 VertexPosition operator+(const VertexPosition &v1, const VertexPosition &v2);   // 顶点加法
 VertexPosition operator-(const VertexPosition &v1, const VertexPosition &v2);    // 顶点减法
+ViewVector operator*(const ViewVector &v, double s); // 向量数量积
+ViewVector operator*(double s, const ViewVector &v); // 向量数量积
+ViewVector cross(const ViewVector &v1, const ViewVector &v2); // 叉乘
+double dot(const ViewVector &v1, const ViewVector &v2);       // 点乘
+double norm(const ViewVector &v);                             // 向量模长
+ViewVector normalize(const ViewVector &v);                    // 向量单位化
+
+void operator<<(std::ostream &os, const VertexPosition &v); // 输出顶点坐标
 
 // AO中所需要的数据结构
 // typedef struct AO {

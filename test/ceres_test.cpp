@@ -1,9 +1,9 @@
 /*
  * @Author: lhopital 1141165506@qq.com
  * @Date: 2024-05-04 21:32:11
- * @LastEditors: lhopital 1141165506@qq.com
- * @LastEditTime: 2024-08-12 22:20:42
- * @FilePath: /g2o_test/test/ceres_test.cpp
+ * @LastEditors: LHospitalLKY 1141165506@qq.com
+ * @LastEditTime: 2024-10-02 16:15:49
+ * @FilePath: /ray_tracing_asteroid_simulator/test/ceres_test.cpp
  * @Description: 尝试使用ceres来进行优化
  */
 
@@ -199,8 +199,8 @@ int main(int argc, const char **argv) {
   NormalList normalList;
   AreaList areaList;
   read_shape(
-      "/home/lho/MyProgramm/2024.04/g2o_test/test_data/ariadne_shape.txt",
-      // "/home/lho/MyProgramm/2024.04/g2o_test/test_data/outshape.txt",
+      "/home/lho/MyProgramm/2024.04/ray_tracing_asteroid_simulator/test_data/ariadne_shape.txt",
+      // "/home/lho/MyProgramm/2024.04/ray_tracing_asteroid_simulator/test_data/outshape.txt",
       facetList, verticeList, 1);
   calculate_areas_normals(facetList, verticeList, normalList, areaList);
 
@@ -220,9 +220,9 @@ int main(int argc, const char **argv) {
   TimeList jd_time_list;
   BriList bri_list;
   read_lcurve_damit(
-      // "/home/lho/MyProgramm/2024.04/g2o_test/test_data/ariadne.lc",
-      "/home/lho/MyProgramm/2024.04/g2o_test/test_data/ariadne_with_sim.lc",
-      // "/home/lho/MyProgramm/2024.04/g2o_test/test_data/135.lc",
+      // "/home/lho/MyProgramm/2024.04/ray_tracing_asteroid_simulator/test_data/ariadne.lc",
+      "/home/lho/MyProgramm/2024.04/ray_tracing_asteroid_simulator/test_data/ariadne_with_sim.lc",
+      // "/home/lho/MyProgramm/2024.04/ray_tracing_asteroid_simulator/test_data/135.lc",
       jd_time_list, bri_list, sun_vec_list, obs_vec_list);
 
   // 添加随机数

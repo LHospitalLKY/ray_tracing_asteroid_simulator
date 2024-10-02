@@ -2,6 +2,7 @@
 
 #include "../include/bright_calcu.h"
 #include <cassert>
+#include <cmath>
 #include <cstddef>
 #include <eigen3/Eigen/src/Core/Matrix.h>
 #include <g2o/stuff/macros.h>
@@ -56,16 +57,96 @@ void facetVisiable_calcu(const NormalList &normalList, const ViewVector sunVec,
   }
 }
 
-// TODO: 这部分看看到底对不对, 感觉不太对, 而且后续接不上好像
-void pointToTriangleDistance(const VertexPosition &p, const FacetIndex &f, const VerticeList &verList) {
-  // 得到三角形顶点坐标
-  VertexPosition A = verList[f[0] - 1];
-  VertexPosition B = verList[f[1] - 1];
-  VertexPosition C = verList[f[2] - 1];
+void facetVisiable_calcu_final(const FacetList facet_list, const VerticeList vertex_list, const VertexPosition &sunPos, const ViewVector sunDir, const VertexPosition &obsPos, const ViewVector &obsDir, VisiableList &visiableList) {
+  int facet_num = facet_list.size();
+  // 从观测方向, 确定面片是否能看到
+  for (size_t i = 0; i < facet_num; i++) {
+    // std::cout << i << std::endl;
+    VertexPosition insec_p;
+    double t;
+    bool insec_or_not = pointToTriangleDistance(obsPos, obsDir, facet_list[i], vertex_list, insec_p, t);
+    if (insec_or_not == true) {
+      std::cout << "Find intersect point with "<< t << " at: " << insec_p[0] << " " << insec_p[1] << " " << insec_p[2] << std::endl;
+    }
+    else {
+      // std::cout << "Not intersect." << std::endl;
+      // return;
+    }
+  }
+}
 
-  // 点p到三角形顶点ABC的向量
-  VertexPosition AP = p - A;
-  // VertexPosition
+bool pointAndShapeIntersect(const FacetList &facet_list, const VerticeList &vertex_list, const VertexPosition &origin_pt, const ViewVector &direction, double &t, VertexPosition &intersec_pt) {
+  double min_t = std::numeric_limits<double>::max();
+  VertexPosition min_intersec_pt;
+  int facet_num = facet_list.size();
+  // 从观测方向, 确定面片是否能看到
+  for (size_t i = 0; i < facet_num; i++) {
+    // std::cout << i << std::endl;
+    VertexPosition insec_p;
+    double t_tmp;
+    bool insec_or_not = pointToTriangleDistance(origin_pt, direction, facet_list[i], vertex_list, insec_p, t_tmp);
+    if (insec_or_not == true) {
+      if (t < min_t) {
+        min_t = t_tmp;
+        min_intersec_pt = {insec_p[0], insec_p[1], insec_p[2]};
+      }
+      // std::cout << "Find intersect point with "<< t_tmp << " at: " << insec_p[0] << " " << insec_p[1] << " " << insec_p[2] << std::endl;
+    }
+  }
+
+  
+
+  if (min_t < std::numeric_limits<double>::max()) {
+    t = min_t;
+    intersec_pt = {min_intersec_pt[0], min_intersec_pt[1], min_intersec_pt[2]};
+    return true;
+  }
+  return false;
+}
+
+// TODO: 这部分看看到底对不对, 感觉不太对, 而且后续接不上好像
+bool pointToTriangleDistance(const VertexPosition &p, const ViewVector &direction, const FacetIndex &f, const VerticeList &verList, VertexPosition &intersection, double &t) {
+  // 得到三角形顶点坐标
+  VertexPosition A = verList[f[0]];
+  VertexPosition B = verList[f[1]];
+  VertexPosition C = verList[f[2]];
+  
+  // 三角形边
+  ViewVector AB = B - A;
+  ViewVector AC = C - A;
+
+  // 计算距离
+  ViewVector h = cross(direction, AC);
+  double a  = dot(AB, h);
+
+  if (a > 0.0 || a < 0.0) {
+    double f = 1.0 / a;
+    ViewVector s = p - A;
+    double u = f * dot(s, h);
+
+    if (u < 0.0 || u > 1.0) {
+      return false;
+    }
+    
+    ViewVector q = cross(s, AB);
+    double v = f * dot(direction, q);
+      
+    if (v < 0.0 || u + v > 1.0) {
+      return false;
+    }
+
+    
+
+    // 输出o+td的t值与交点坐标
+    t = f * dot(AC, q);
+    intersection = p + direction*t;
+    // std::cout << intersection[0] << " ";
+    // std::cout << intersection[1] << " ";
+    // std::cout << intersection[2] << std::endl;
+    return true;
+  }
+
+  return false;
 }
 
 void facetVisiable_calcu_final(const NormalList &normalList, const ViewVector sunPos, const ViewVector obsPos, VisiableList &visiableList) {
@@ -209,9 +290,12 @@ void calculate_areas_normals_onepiece(const FacetIndex &facetIndex,
   }
 
   // 三角形的三个顶点索引
-  int index_1 = facetIndex[0] - 1;
-  int index_2 = facetIndex[1] - 1;
-  int index_3 = facetIndex[2] - 1;
+  // int index_1 = facetIndex[0] - 1;
+  // int index_2 = facetIndex[1] - 1;
+  // int index_3 = facetIndex[2] - 1;
+  int index_1 = facetIndex[0];
+  int index_2 = facetIndex[1];
+  int index_3 = facetIndex[2];
 
   // 得到三角形三个顶点的坐标
   double x1 = vertexList[index_1][0];

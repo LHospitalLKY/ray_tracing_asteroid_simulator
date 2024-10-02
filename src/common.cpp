@@ -1,13 +1,14 @@
 /*
  * @Author: lhopital 1141165506@qq.com
  * @Date: 2024-05-03 16:32:46
- * @LastEditors: lhopital 1141165506@qq.com
- * @LastEditTime: 2024-10-01 14:04:45
+ * @LastEditors: LHospitalLKY 1141165506@qq.com
+ * @LastEditTime: 2024-10-02 18:49:09
  * @FilePath: /g2o_test/src/common/common.cpp
  * @Description: common.h的实现
  */
 
 #include "../include/common.h"
+#include <cstddef>
 
 // Stringsplit
 void Stringsplit(std::string str, const char &split,
@@ -57,6 +58,55 @@ VertexPosition operator-(const VertexPosition &v1, const VertexPosition &v2) {
   v.push_back(v1[2] - v2[2]);
 
   return v;
+}
+// 向量数量积
+ViewVector operator*(const ViewVector &v, double s) {
+  ViewVector vs;
+  vs.push_back(v[0]*s);
+  vs.push_back(v[1]*s);
+  vs.push_back(v[2]*s);
+  return vs;
+}
+ViewVector operator*(double s, const ViewVector &v) {
+  ViewVector vs;
+  vs.push_back(v[0]*s);
+  vs.push_back(v[1]*s);
+  vs.push_back(v[2]*s);
+  return vs;
+}
+// 两个向量的叉乘
+ViewVector cross(const ViewVector &v1, const ViewVector &v2) {
+  double A[3] = {v1[0], v1[1], v1[2]};
+  double B[3] = {v2[0], v2[1], v2[2]};
+  double C[3];
+
+  cross(A, B, C);
+  ViewVector cv = {C[0], C[1], C[2]};
+
+  return cv;
+  // cv.push_back(C[0]);
+}
+// 两个向量的点乘
+double dot(const ViewVector &v1, const ViewVector &v2) {
+  return v1[0] * v2[0] + v1[1] * v2[1] + v1[2] * v2[2];
+}
+// 向量模长
+double norm(const ViewVector &v) {
+  double V[3] = {v[0], v[1], v[2]};
+  return norm(V);
+}
+// 向量单位化
+ViewVector normalize(const ViewVector &v) {
+  double norm_ = norm(v);
+  ViewVector vn = {v[0] / norm_, v[1] / norm_, v[2] / norm_};
+  return vn;
+}
+// 输出坐标
+void operator<<(std::ostream &os, const VertexPosition &v) {
+  for (size_t i = 0; i < v.size(); i++) {
+    std::cout << v[i] << " ";
+  }
+  std::cout << std::endl;
 }
 
 // phaseAngle
@@ -187,9 +237,9 @@ void write_shape_stl(std::string filename, const FacetList &facetList,
     // 写入面片顶点
     for (size_t j = 0; j < 3; j++) {
       FacetIndex facet = facetList[i];
-      ofs << "vertex " << verticeList[facetList[i][j] - 1][0] << " "
-          << verticeList[facetList[i][j] - 1][1] << " "
-          << verticeList[facetList[i][j] - 1][2] << std::endl;
+      ofs << "vertex " << verticeList[facetList[i][j]][0] << " "
+          << verticeList[facetList[i][j]][1] << " "
+          << verticeList[facetList[i][j]][2] << std::endl;
     }
     ofs << "endloop" << std::endl;
     ofs << "endfacet" << std::endl;
@@ -244,7 +294,7 @@ void read_shape(std::string filename, FacetList &facetList,
     Stringsplit(line, ' ', line_split);
     FacetIndex facet;
     for (int j = 0; j < 3; j++) {
-      facet.push_back(std::stoi(line_split[j]));
+      facet.push_back(std::stoi(line_split[j]) - 1);
     }
     facetList.push_back((facet));
   }

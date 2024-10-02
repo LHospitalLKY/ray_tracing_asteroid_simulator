@@ -1,9 +1,9 @@
 /*
  * @Author: lhopital 1141165506@qq.com
  * @Date: 2024-05-03 16:14:17
- * @LastEditors: lhopital 1141165506@qq.com
- * @LastEditTime: 2024-05-07 19:20:15
- * @FilePath: /g2o_test/test/bright_calcu_test.cpp
+ * @LastEditors: LHospitalLKY 1141165506@qq.com
+ * @LastEditTime: 2024-10-02 16:13:18
+ * @FilePath: /ray_tracing_asteroid_simulator/test/bright_calcu_test.cpp
  * @Description: 测试bright_calcu.cpp的功能
  */
 
@@ -33,7 +33,7 @@ int main(int argc, const char **argv) {
   std::cout << "======Read Shape File: ariadne======" << std::endl;
   FacetList facetList;
   VerticeList verticeList;
-  read_shape("/home/lho/MyProgramm/2024.04/g2o_test/test_data/ariadne_shape.txt",
+  read_shape("/home/lho/MyProgramm/2024.04/ray_tracing_asteroid_simulator/test_data/ariadne_shape.txt",
              facetList, verticeList, 1);
 
   // 计算一个面的法向量和面积
@@ -84,7 +84,7 @@ int main(int argc, const char **argv) {
   std::cout << "Find " << visiable_count << " visible facets." << std::endl;
 
   write_vis_shape_stl(
-      "/home/lho/MyProgramm/2024.04/g2o_test/test_data/visiable_test.stl",
+      "/home/lho/MyProgramm/2024.04/ray_tracing_asteroid_simulator/test_data/visiable_test.stl",
       facetList, verticeList, normalList, visibleList);
 
   // 读取damit光变文件
@@ -92,7 +92,7 @@ int main(int argc, const char **argv) {
   VectorList sun_vec_list, obs_vec_list;
   TimeList jd_time_list;
   BriList bri_list;
-  read_lcurve_damit("/home/lho/MyProgramm/2024.04/g2o_test/test_data/ariadne.lc",
+  read_lcurve_damit("/home/lho/MyProgramm/2024.04/ray_tracing_asteroid_simulator/test_data/ariadne.lc",
                     jd_time_list, bri_list, sun_vec_list, obs_vec_list);
   std::cout << jd_time_list.size() << " " << sun_vec_list.size() << " "
             << obs_vec_list.size() << std::endl;
