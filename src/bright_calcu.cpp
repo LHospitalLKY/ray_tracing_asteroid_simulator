@@ -81,12 +81,11 @@ bool pointAndShapeIntersect(const FacetList &facet_list, const VerticeList &vert
   int facet_num = facet_list.size();
   // 从观测方向, 确定面片是否能看到
   for (size_t i = 0; i < facet_num; i++) {
-    // std::cout << i << std::endl;
     VertexPosition insec_p;
     double t_tmp;
     bool insec_or_not = pointToTriangleDistance(origin_pt, direction, facet_list[i], vertex_list, insec_p, t_tmp);
     if (insec_or_not == true) {
-      if (t < min_t) {
+      if (t_tmp < min_t) {
         min_t = t_tmp;
         min_intersec_pt = {insec_p[0], insec_p[1], insec_p[2]};
       }

@@ -5,4 +5,4 @@
 
 ![猴子头](doc/monkey-head-test.jpg "Monkey Head")
 
-从图中可用看出, 目前还是有一些问题.
+(仔细看, 其实还是有一些问题的)

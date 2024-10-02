@@ -59,7 +59,7 @@ secrets.txt
 
 # 忽略文档文件
 *.pdf
-*.doc
+# *.doc
 *.docx
 
 # 忽略编译配置文件
