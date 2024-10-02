@@ -1,8 +1,8 @@
 /*
  * @Author: lhopital 1141165506@qq.com
  * @Date: 2024-04-26 19:33:28
- * @LastEditors: lhopital 1141165506@qq.com
- * @LastEditTime: 2024-10-01 13:54:52
+ * @LastEditors: LHospitalLKY 1141165506@qq.com
+ * @LastEditTime: 2024-10-02 18:16:21
  * @FilePath: /g2o_test/include/bright_calcu.h
  * @Description: 输入形状模型和观测条件, 计算亮度
  */
@@ -77,24 +77,36 @@ void facetVisiable_calcu(const NormalList &normalList, const ViewVector sunVec,
  * 采用两个判断准则来得到可见性列表:
  * 1. 通过面片的法向量和观测方向、太阳方向判断面片是否可见
  * 2. 计算当前方向下, 当前面片是否是太阳或观测者发出的, 所看到的第一个位置
+ * TODO: 这个函数还没写完
  * @param {NormalList} &normalList, 面片法向量列表
  * @param {ViewVector} sunPos, 太阳位置, 单位是km
  * @param {ViewVector} obsPos, 观测者位置, 单位是km
  * @param {VisiableList} &visiableList, 可见性列表
  * @return {*}
  */
-void facetVisiable_calcu_final(const NormalList &normalList,
-                               const ViewVector sunPos, const ViewVector obsPos,
-                               VisiableList &visiableList);
+void facetVisiable_calcu_final(const FacetList facet_list, const VerticeList vertex_list, const VertexPosition &sunPos, const ViewVector sunDir, const VertexPosition &obsPos, const ViewVector &obsDir, VisiableList &visiableList);
 
 /**
- * @description: 计算点p到三角形面片的距离
- * @param {VerticeList} &p, 待计算的点
- * @param {FacetIndex} &f, 待计算的三角形面片
- * @param {VerticeList} &verList, 所有顶点列表, 用于得到三角形的三个顶点
+ * @description: 计算一条射线与一个形状的首个交点
+ * @param {FacetList} &facet_list, 面片列表
+ * @param {VerticeList} &vertex_list, 顶点列表
+ * @param {VertexPosition} &origin_pt, 射线起点
+ * @param {ViewVector} &direction, 射线方向
+ * @return {double} &t, 交点距离起点的距离
+ * @return {VertexPosition} &intersec_pt intersec_pt, 交点
+ */
+void pointAndShapeIntersect(const FacetList &facet_list, const VerticeList &vertex_list, const VertexPosition &origin_pt, const ViewVector &direction, double &t, VertexPosition &intersec_pt);
+
+/**
+ * @description: 计算从某个点出发的向量与某个面片的交点
+ * @param {VertexPosition} &p
+ * @param {ViewVector} &direction
+ * @param {FacetIndex} &f
+ * @param {VerticeList} &verList
+ * @param {VertexPosition} &intersection
  * @return {*}
  */
-void pointToTriangleDistance(const VerticeList &p, const FacetIndex &f, const VerticeList &verList);
+bool pointToTriangleDistance(const VertexPosition &p, const ViewVector &direction, const FacetIndex &f, const VerticeList &verList, VertexPosition &intersection, double &t);
 
 /**
  * @description:

@@ -1,9 +1,9 @@
 /*
  * @Author: lhopital 1141165506@qq.com
  * @Date: 2024-05-03 17:42:26
- * @LastEditors: lhopital 1141165506@qq.com
- * @LastEditTime: 2024-05-05 10:14:54
- * @FilePath: /g2o_test/test/period_scan.cpp
+ * @LastEditors: LHospitalLKY 1141165506@qq.com
+ * @LastEditTime: 2024-10-02 16:18:56
+ * @FilePath: /ray_tracing_asteroid_simulator/test/period_scan.cpp
  * @Description: 基于g2o的自转周期寻找
  */
 
@@ -277,7 +277,7 @@ int main(int argc, const char** argv) {
     double beta = -15.;
     double lambda = 253.;
     double P = 5.76198;
-    double P_start = 4.0;
+    double P_start = 5.0;
     double phi_0 = 0.0;
     double A0 = 0.5;
     double D = 0.1;
@@ -290,7 +290,7 @@ int main(int argc, const char** argv) {
     VerticeList verticeList;
     NormalList normalList;
     AreaList areaList;
-    read_shape("/home/lho/MyProgramm/2024.04/g2o_test/test_data/ariadne_shape.txt",
+    read_shape("/home/lho/MyProgramm/2024.04/ray_tracing_asteroid_simulator/test_data/ariadne_shape.txt",
              facetList, verticeList, 1);
     calculate_areas_normals(facetList, verticeList, normalList, areaList);
 
@@ -307,7 +307,7 @@ int main(int argc, const char** argv) {
     VectorList sun_vec_list, obs_vec_list;
     TimeList jd_time_list;
     BriList bri_list;
-    read_lcurve_damit("/home/lho/MyProgramm/2024.04/g2o_test/test_data/ariadne.lc",
+    read_lcurve_damit("/home/lho/MyProgramm/2024.04/ray_tracing_asteroid_simulator/test_data/ariadne.lc",
                         jd_time_list, bri_list, sun_vec_list, obs_vec_list);
     for (size_t i = 0; i < bri_list.size(); i++) {
         bri_list[i] = bri_list[i] * 8.679929627312347;
@@ -385,7 +385,7 @@ int main(int argc, const char** argv) {
 
     // 输出最终结果
     std::cout << "Target parameters" << std::endl;
-    std::cout << "P" << std::endl;
+    std::cout << "P      = " << P << std::endl;
     std::cout << "Iterative least squares solution" << std::endl;
     std::cout << "P      = " << params->estimate()(0) << std::endl;
     std::cout << std::endl;
