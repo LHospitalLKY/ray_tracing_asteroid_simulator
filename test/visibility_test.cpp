@@ -2,7 +2,7 @@
  * @Author: lhopital 1141165506@qq.com
  * @Date: 2024-10-01 14:05:18
  * @LastEditors: LHospitalLKY 1141165506@qq.com
- * @LastEditTime: 2024-10-02 19:19:59
+ * @LastEditTime: 2024-10-02 19:42:05
  * @FilePath: /g2o_test/test/visibility_test.cpp
  * @Description: 可见性测试程序
  */
@@ -42,8 +42,8 @@ int main(int argc, const char **argv) {
   VertexPosition obsPos = {0.0, 0.0, 10.0};
 
   int half_length = 2;
-  int height = 1024;
-  int width = 1024;
+  int height = 100;
+  int width = 100;
   int k = 0;
   // pgm图像
   std::ofstream f("monkey_head_test.pgm", std::ios::out);
@@ -71,9 +71,9 @@ int main(int argc, const char **argv) {
         f << (int)((11. - t) * 100) << " ";
       }
       // k++;
-      // if (intersect_or_not == true) {
-      //   std::cout << "Find intersect point with " << t << " at: " << first_intersec_pt;
-      // }
+      if (intersect_or_not == true) {
+        std::cout << "Find intersect point with " << t << " at: " << first_intersec_pt;
+      }
 
       // std::cout << obsDir;
 
