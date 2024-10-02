@@ -75,7 +75,7 @@ void facetVisiable_calcu_final(const FacetList facet_list, const VerticeList ver
   }
 }
 
-void pointAndShapeIntersect(const FacetList &facet_list, const VerticeList &vertex_list, const VertexPosition &origin_pt, const ViewVector &direction, double &t, VertexPosition &intersec_pt) {
+bool pointAndShapeIntersect(const FacetList &facet_list, const VerticeList &vertex_list, const VertexPosition &origin_pt, const ViewVector &direction, double &t, VertexPosition &intersec_pt) {
   double min_t = std::numeric_limits<double>::max();
   VertexPosition min_intersec_pt;
   int facet_num = facet_list.size();
@@ -90,13 +90,18 @@ void pointAndShapeIntersect(const FacetList &facet_list, const VerticeList &vert
         min_t = t_tmp;
         min_intersec_pt = {insec_p[0], insec_p[1], insec_p[2]};
       }
-      std::cout << "Find intersect point with "<< t_tmp << " at: " << insec_p[0] << " " << insec_p[1] << " " << insec_p[2] << std::endl;
+      // std::cout << "Find intersect point with "<< t_tmp << " at: " << insec_p[0] << " " << insec_p[1] << " " << insec_p[2] << std::endl;
     }
   }
 
-  t = min_t;
-  intersec_pt = {min_intersec_pt[0], min_intersec_pt[1], min_intersec_pt[2]};
+  
 
+  if (min_t < std::numeric_limits<double>::max()) {
+    t = min_t;
+    intersec_pt = {min_intersec_pt[0], min_intersec_pt[1], min_intersec_pt[2]};
+    return true;
+  }
+  return false;
 }
 
 // TODO: 这部分看看到底对不对, 感觉不太对, 而且后续接不上好像

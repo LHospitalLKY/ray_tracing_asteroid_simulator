@@ -2,7 +2,7 @@
  * @Author: lhopital 1141165506@qq.com
  * @Date: 2024-04-26 19:33:28
  * @LastEditors: LHospitalLKY 1141165506@qq.com
- * @LastEditTime: 2024-10-02 18:16:21
+ * @LastEditTime: 2024-10-02 18:57:19
  * @FilePath: /g2o_test/include/bright_calcu.h
  * @Description: 输入形状模型和观测条件, 计算亮度
  */
@@ -94,8 +94,9 @@ void facetVisiable_calcu_final(const FacetList facet_list, const VerticeList ver
  * @param {ViewVector} &direction, 射线方向
  * @return {double} &t, 交点距离起点的距离
  * @return {VertexPosition} &intersec_pt intersec_pt, 交点
+ * @return {bool} 是否有交点
  */
-void pointAndShapeIntersect(const FacetList &facet_list, const VerticeList &vertex_list, const VertexPosition &origin_pt, const ViewVector &direction, double &t, VertexPosition &intersec_pt);
+bool pointAndShapeIntersect(const FacetList &facet_list, const VerticeList &vertex_list, const VertexPosition &origin_pt, const ViewVector &direction, double &t, VertexPosition &intersec_pt);
 
 /**
  * @description: 计算从某个点出发的向量与某个面片的交点

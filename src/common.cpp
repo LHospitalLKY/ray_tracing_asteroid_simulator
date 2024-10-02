@@ -2,12 +2,13 @@
  * @Author: lhopital 1141165506@qq.com
  * @Date: 2024-05-03 16:32:46
  * @LastEditors: LHospitalLKY 1141165506@qq.com
- * @LastEditTime: 2024-10-02 17:14:27
+ * @LastEditTime: 2024-10-02 18:49:09
  * @FilePath: /g2o_test/src/common/common.cpp
  * @Description: common.h的实现
  */
 
 #include "../include/common.h"
+#include <cstddef>
 
 // Stringsplit
 void Stringsplit(std::string str, const char &split,
@@ -99,6 +100,13 @@ ViewVector normalize(const ViewVector &v) {
   double norm_ = norm(v);
   ViewVector vn = {v[0] / norm_, v[1] / norm_, v[2] / norm_};
   return vn;
+}
+// 输出坐标
+void operator<<(std::ostream &os, const VertexPosition &v) {
+  for (size_t i = 0; i < v.size(); i++) {
+    std::cout << v[i] << " ";
+  }
+  std::cout << std::endl;
 }
 
 // phaseAngle

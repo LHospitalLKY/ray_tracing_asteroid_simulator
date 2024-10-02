@@ -2,7 +2,7 @@
  * @Author: lhopital 1141165506@qq.com
  * @Date: 2024-10-01 14:05:18
  * @LastEditors: LHospitalLKY 1141165506@qq.com
- * @LastEditTime: 2024-10-02 18:12:01
+ * @LastEditTime: 2024-10-02 19:19:59
  * @FilePath: /g2o_test/test/visibility_test.cpp
  * @Description: 可见性测试程序
  */
@@ -38,20 +38,66 @@ int main(int argc, const char **argv) {
   const FacetList *facetList = loader.getFacets();
   const NormalList *normalList = loader.getNormals();
 
-  // 观测方向
-  VertexPosition sunPos = {0.01, 0.5, 10.0};
-  ViewVector sunDirect = {0.01, 0.0, -1.0};
-  VertexPosition obsPos = {0.01, 0.5, 10.0};
-  ViewVector obsDirect = {0.0, 0.0, -1.0};
+  // 观测原点
+  VertexPosition obsPos = {0.0, 0.0, 10.0};
 
-  VisiableList vis_list;
+  int half_length = 2;
+  int height = 1024;
+  int width = 1024;
+  int k = 0;
+  // pgm图像
+  std::ofstream f("monkey_head_test.pgm", std::ios::out);
+  f << "P2" <<  std::endl;
+  f << height << " " << width << std::endl;
+  f << 1024 << std::endl;
+  for (size_t i = 0; i < height; i++) {
+    for (size_t j = 0; j < width; j++) {
+      // 得到观测方向
+      VertexPosition endPos = {((double)i * (2*half_length) / (double)height) - half_length, ((double)j * (2*half_length) / (double)width) - half_length, 0};
+      ViewVector obsDir = endPos - obsPos;
+      obsDir = normalize(obsDir);
 
-  // facetVisiable_calcu_final(*facetList, *vertexList, sunPos, sunDirect, obsPos, obsDirect, vis_list);
-  double t;
-  VertexPosition first_intersec_pt;
-  pointAndShapeIntersect(*facetList, *vertexList, obsPos, obsDirect, t, first_intersec_pt);
+      double t;
+      VertexPosition first_intersec_pt;
+      bool intersect_or_not = pointAndShapeIntersect(*facetList, *vertexList, obsPos, obsDir, t, first_intersec_pt);
 
-  std::cout << "First intersection at " << t << ": " << first_intersec_pt[0] << " " << first_intersec_pt[1] << " " << first_intersec_pt[2] << std::endl;
+      // 若无交点
+      if (intersect_or_not == false) {
+        f << 0 << " ";
+      }
+      else {
+        // std::cout << t - 8.0 << std::endl;
+        // std::cout << (12. - t) * 100 << std::endl;
+        f << (int)((11. - t) * 100) << " ";
+      }
+      // k++;
+      // if (intersect_or_not == true) {
+      //   std::cout << "Find intersect point with " << t << " at: " << first_intersec_pt;
+      // }
+
+      // std::cout << obsDir;
+
+      // ViewVector obsDirec = {(double)i - half_length, (double)j - half_length, 1.0};
+    }
+    f << std::endl;
+  }
+  f.close();
+  // std::cout << k << std::endl;
+
+  // // 观测方向
+  // VertexPosition sunPos = {0.01, 0.5, 10.0};
+  // ViewVector sunDirect = {0.01, 0.0, -1.0};
+  // VertexPosition obsPos = {0.01, 0.5, 10.0};
+  // ViewVector obsDirect = {0.0, 0.0, -1.0};
+
+  // VisiableList vis_list;
+
+  // // facetVisiable_calcu_final(*facetList, *vertexList, sunPos, sunDirect, obsPos, obsDirect, vis_list);
+  // double t;
+  // VertexPosition first_intersec_pt;
+  // pointAndShapeIntersect(*facetList, *vertexList, obsPos, obsDirect, t, first_intersec_pt);
+
+  // std::cout << "First intersection at " << t << ": " << first_intersec_pt[0] << " " << first_intersec_pt[1] << " " << first_intersec_pt[2] << std::endl;
 
   // 测试一下面片交点的计算
   // VertexPosition p0 = {1., 0., 0.};

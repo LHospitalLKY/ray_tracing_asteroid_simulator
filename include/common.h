@@ -2,7 +2,7 @@
  * @Author: lhopital 1141165506@qq.com
  * @Date: 2024-05-03 16:17:42
  * @LastEditors: LHospitalLKY 1141165506@qq.com
- * @LastEditTime: 2024-10-02 17:15:57
+ * @LastEditTime: 2024-10-02 18:48:40
  * @FilePath: /g2o_test/include/common/common.h
  * @Description: 一些公用的数据类型与函数
  */
@@ -48,6 +48,8 @@ ViewVector cross(const ViewVector &v1, const ViewVector &v2); // 叉乘
 double dot(const ViewVector &v1, const ViewVector &v2);       // 点乘
 double norm(const ViewVector &v);                             // 向量模长
 ViewVector normalize(const ViewVector &v);                    // 向量单位化
+
+void operator<<(std::ostream &os, const VertexPosition &v); // 输出顶点坐标
 
 // AO中所需要的数据结构
 // typedef struct AO {
