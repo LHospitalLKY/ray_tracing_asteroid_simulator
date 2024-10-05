@@ -51,7 +51,7 @@ secrets.txt
 *.log
 
 # 忽略图像和视频文件
-*.jpg
+# *.jpg
 *.jpeg
 *.png
 *.gif

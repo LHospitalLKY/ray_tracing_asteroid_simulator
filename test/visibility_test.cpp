@@ -2,7 +2,7 @@
  * @Author: lhopital 1141165506@qq.com
  * @Date: 2024-10-01 14:05:18
  * @LastEditors: LHospitalLKY 1141165506@qq.com
- * @LastEditTime: 2024-10-02 23:03:59
+ * @LastEditTime: 2024-10-03 10:00:32
  * @FilePath: /g2o_test/test/visibility_test.cpp
  * @Description: 可见性测试程序
  */
@@ -46,12 +46,14 @@ int main(int argc, const char **argv) {
   int height = 1024;
   int width = 1024;
   int k = 0;
+  double img[height][width];
   // pgm图像与点列
   std::ofstream f("monkey_head_test.pgm", std::ios::out);
   std::ofstream f_p("monkey_head_test.txt", std::ios::out);
   f << "P2" <<  std::endl;
   f << height << " " << width << std::endl;
   f << 1024 << std::endl;
+  
   for (size_t i = 0; i < height; i++) {
     for (size_t j = 0; j < width; j++) {
       // 得到观测方向

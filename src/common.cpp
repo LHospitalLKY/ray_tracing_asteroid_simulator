@@ -2,7 +2,7 @@
  * @Author: lhopital 1141165506@qq.com
  * @Date: 2024-05-03 16:32:46
  * @LastEditors: LHospitalLKY 1141165506@qq.com
- * @LastEditTime: 2024-10-02 18:49:09
+ * @LastEditTime: 2024-10-04 22:57:18
  * @FilePath: /g2o_test/src/common/common.cpp
  * @Description: common.h的实现
  */
@@ -299,4 +299,38 @@ void read_shape(std::string filename, FacetList &facetList,
     facetList.push_back((facet));
   }
   std::cout << "Read " << facetList.size() << " facets indexes." << std::endl;
+}
+
+ViewVector facet_normal_calcu(const VertexPosition &p0, const VertexPosition &p1, const VertexPosition &p2) {
+  double x1 = p0[0];
+  double y1 = p0[1];
+  double z1 = p0[2];
+
+  double x2 = p1[0];
+  double y2 = p1[1];
+  double z2 = p1[2];
+
+  double x3 = p2[0];
+  double y3 = p2[1];
+  double z3 = p2[2];
+
+  double v1[3], v2[3], cv[3];
+  v1[0] = x2 - x1;
+  v1[1] = y2 - y1;
+  v1[2] = z2 - z1;
+
+  v2[0] = x3 - x1;
+  v2[1] = y3 - y1;
+  v2[2] = z3 - z1;
+
+  cross(v1, v2, cv);
+  double normCV = norm(cv);
+
+  ViewVector normalVec;
+  normalVec.push_back(cv[0] / normCV);
+  normalVec.push_back(cv[1] / normCV);
+  normalVec.push_back(cv[2] / normCV);
+
+  return normalVec;
+
 }

@@ -2,7 +2,7 @@
  * @Author: lhopital 1141165506@qq.com
  * @Date: 2024-05-03 16:17:42
  * @LastEditors: LHospitalLKY 1141165506@qq.com
- * @LastEditTime: 2024-10-02 18:48:40
+ * @LastEditTime: 2024-10-04 22:52:51
  * @FilePath: /g2o_test/include/common/common.h
  * @Description: 一些公用的数据类型与函数
  */
@@ -146,6 +146,15 @@ void write_shape_stl(std::string filename, const FacetList &facetList,
  */
 void read_shape(std::string filename, FacetList &facetList,
                 VerticeList &verticeList, int type3);
+
+/**
+ * @description: 计算三角面的法向量
+ * @param {VertexPosition} &p0
+ * @param {VertexPosition} &p1
+ * @param {VertexPosition} &p2
+ * @return {*}
+ */
+ViewVector facet_normal_calcu(const VertexPosition &p0, const VertexPosition &p1, const VertexPosition &p2);
 
 
 

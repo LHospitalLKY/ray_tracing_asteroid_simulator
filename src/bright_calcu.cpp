@@ -92,9 +92,6 @@ bool pointAndShapeIntersect(const FacetList &facet_list, const VerticeList &vert
       // std::cout << "Find intersect point with "<< t_tmp << " at: " << insec_p[0] << " " << insec_p[1] << " " << insec_p[2] << std::endl;
     }
   }
-
-  
-
   if (min_t < std::numeric_limits<double>::max()) {
     t = min_t;
     intersec_pt = {min_intersec_pt[0], min_intersec_pt[1], min_intersec_pt[2]};

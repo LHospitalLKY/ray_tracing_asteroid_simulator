@@ -76,6 +76,14 @@ add_library(bright_calcu
     src/common.cpp
     src/bright_calcu.cpp
 )
+# BVH算法
+# add_library(bvh_lib
+#     include/common.h
+#     include/BVH.h
+#     src/common.cpp
+#     src/BVH.cpp
+#     3dpart/gnuplot_i.hpp
+# )
 # AO图像处理库
 # add_library(AO_calcu
 #     include/common.h
@@ -156,6 +164,19 @@ target_link_libraries(AO_calcu
     cfitsio
     kiss_fft
 )
+
+# BVH测试
+add_executable(bvh_test
+    include/common.h
+    include/BVH.h
+    src/common.cpp
+    src/BVH.cpp
+    3dpart/gnuplot_i.hpp
+    test/BVH_test.cpp
+)
+# target_link_libraries(bvh_test
+#     # bvh_lib
+# )
 
 # add_executable(jet_test
 #     include/bright_calcu_jet.h
